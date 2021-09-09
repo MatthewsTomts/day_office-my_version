@@ -1,9 +1,12 @@
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 
 import { Button } from '../components/Button'
+import { TestContext } from '../App'
 import '../styles/agendamento.scss'
 
 export function Agendamento() {
+
   return (
       <div id="page-agendamento">
           <main>

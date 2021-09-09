@@ -1,3 +1,4 @@
+import { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import { firebase, auth } from '../services/firebase'
@@ -8,19 +9,14 @@ import logoImg from '../assets/images/logo.svg'
 import googleIconImg from '../assets/images/google-icon.svg'
 
 import { Button } from '../components/Button'
+import { AuthContext } from '../App'
 import '../styles/auth.scss'
 
 export function Home() {
     const history = useHistory();
 
-    function handleAgendamento() {
-        const provider = new firebase.auth.GoogleAuthProvider();
-
-        auth.signInWithPopup(provider).then(function (result) {
-            console.log(result);
-        })
-
-        history.push('/agendamento')
+    function handleAgendamento() {    
+        history.push('/agendamento')    
     }
 
     return (
@@ -37,7 +33,7 @@ export function Home() {
                         <img src="" alt="" /> 
                         Registrar-se com o Teams
                     </button>
-                    <button onClick={ handleAgendamento } className="logar-google">
+                    <button onClick={handleAgendamento} className="logar-google">
                         <img src={ googleIconImg } alt="" />
                         Registrar-se com o Google
                     </button>
